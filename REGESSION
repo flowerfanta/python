@@ -1,0 +1,116 @@
+Q1
+from numpy import *
+a=array([[1,3,2],[2,5,7],[3,2,9]])
+b=array([[2,1,2],[3,7,5],[4,10,1]])
+A=matrix(a)
+B=matrix(b)
+print("Enter matrix A\n",A)
+print("Enter matrix B\n",B)
+addition=A+B
+print("Addition of two matrix is\n",addition)
+subtraction=A-B
+print("Subtraction of two matrix is\n",subtraction)
+multiplication=A*B
+print("Multiplication of two matrix is\n",multiplication)
+
+
+q2
+import numpy as np
+import matplotlib.pyplot as plt
+x=np.array([20,25,30,35,40,50,55,60])
+y=np.array([51,70,86,102,135,170,242,255])
+plt.scatter(x,y)
+plt.xlabel('Independent variable X')
+plt.ylabel('Dependent variable Y')
+plt.show()
+n=len(x)
+mx=np.mean(x)
+my=np.mean(y)
+covxy=(np.sum(x*y)/n)-(mx*my)
+vx=(np.sum(x*x)/n)-(mx*mx)
+vy=(np.sum(y*y)/n)-(my*my)
+sdx=np.sqrt(vx)
+sdy=np.sqrt(vy)
+corr=covxy/(sdx*sdy)
+print("Correlation coefficient between X and Y is", corr)
+b1=covxy/vx
+print("Estimate of Slope B1 is", b1)
+b0=my-b1*mx
+print("Estimate of Intercept B0 is", b0)
+print(f" Regression equation Y on X is, y={b0}+{b1}*x \n")
+y_pred=b0+b1*x
+plt.scatter(x, y, color = 'red')
+plt.plot(x, y_pred, color = 'green')
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.show()
+error=y-y_pred
+SSE=sum(error**2)
+print("Error Sum of Square :", SSE)
+MSSE=SSE/(n-2)
+SST=sum((y-my)**2)
+print("Total sum of square:", SST)
+Rsq=1-(SSE/SST)
+print("Coefficient of determination is R^2:", Rsq)
+MSST=SST/(n-1)
+Rsq_adj=1-(MSSE/MSST)
+print("Adjusted R^2:" ,Rsq_adj)
+
+
+
+
+
+
+q3
+import numpy as np
+import matplotlib.pyplot as plt
+x=np.array([65,63,67,64,68,62,70,66,68,67])
+y=np.array([68,66,68,65,69,66,68,65,71,67])
+plt.scatter(x,y)
+plt.xlabel('Height of father (inches)')
+plt.ylabel('Height of son (inches)')
+plt.show()
+n=len(x)
+mx=np.mean(x)
+my=np.mean(y)
+covxy=(np.sum(x*y)/n)-(mx*my)
+vx=(np.sum(x*x)/n)-(mx*mx)
+vy=(np.sum(y*y)/n)-(my*my)
+sdx=np.sqrt(vx)
+sdy=np.sqrt(vy)
+corr=covxy/(sdx*sdy)
+print("Correlation coefficient between Height of father and son is",corr)
+b1=covxy/vx
+print("Estimate of Slope B1 is %0.4f" %b1)
+b0=my-b1*mx
+print("Estimate of Intercept B0 is %0.4f" %b0)
+print(f" Regression equation Y on X is, y={b0}+{b1}*x\n")
+y_pred=b0+b1*x
+print("Fitted values are:\n",y_pred)
+plt.scatter(x, y, color = 'red')
+plt.plot(x, y_pred, color = 'green')
+plt.xlabel('Height of father (inches)')
+plt.ylabel('Height of son (inches)')
+plt.show()
+X=65
+yhat=b0 + b1 * X
+print("Predicted value of for X=65 is %d" %yhat)
+error=y-y_pred
+print("Residual values are Y - Y predicted \n", error)
+SSE=sum(error**2)
+print("Error Sum of Square :%0.4f" %SSE)
+MSSE=SSE/(n-2)
+print("Mean residual(error) sum of square:%0.4f" %MSSE)
+MSSE_sq=np.sqrt(MSSE)
+print("Analyze the performance of the model by calculating square root of mean
+squared error %0.4f " %MSSE_sq)
+SST=sum((y-my)**2)
+print("Total sum of square:%0.4f" %SST)
+Rsq=1-(SSE/SST)
+print("Coefficient of determination is R^2:%0.4f" %Rsq)
+MSST=SST/(n-1)
+print("Mean total sum of square:%0.4f" %MSST)
+Rsq_adj=1-(MSSE/MSST)
+print("Adjusted R^2:%0.4f" % Rsq_adj)
+
+
