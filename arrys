@@ -1,0 +1,34 @@
+Q.1
+from numpy import *
+a=array([[1,3,2],[2,5,7],[3,2,9]])
+b=array([[2,1,2],[3,7,5],[4,10,1]])
+A=matrix(a)
+B=matrix(b)
+print("Enter matrix A\n",A)
+print("Enter matrix B\n",B)
+addition=A+B
+print("Addition of two matrix is\n",addition)
+subtraction=A-B
+print("Subtraction of two matrix is\n",subtraction)
+multiplication=A*B
+print("Multiplication of two matrix is\n",multiplication)
+
+
+Q.2 1)
+from numpy import *
+print("Enter the matrix of coefficients as A")
+A=array([[4,3],[-5,9]])
+B=array([20,26])
+inv=linalg.inv(A)
+X=inv.dot(B)
+print("Values of 2 unknown variable are as follows:\n",X)
+
+Q.2 2)
+from numpy import *
+A=array([[2,1,1],[1,3,2],[2,1,2]])
+print("Enter the matrix of coefficients as A\n",A)
+B=array([180,300,240])
+print("Enter the matrix of values as B\n",B)
+inv=linalg.inv(A)
+X=inv.dot(B)
+print("Solution of 3 unknown variable (x,y,z) are as follows:\n",X)
