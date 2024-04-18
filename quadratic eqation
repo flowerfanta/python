@@ -1,0 +1,82 @@
+//q1
+import math
+a=int(input("Enter the value of a:"))
+b=int(input("Enter the value of b:"))
+c=int(input("Enter the value of c:"))
+print(f"Result for equation is,{a}x**2+{b}x+{c}=0,\n")
+delta=(b**2)-(4*a*c)
+print("The value of discriminant is",delta)if delta<0:
+    print("The two roots imaginary")
+elif delta==0:
+    root=(-b)/(2*a)
+    print("Two roots are Equal and real",root)
+else:
+    root1=(-b+math.sqrt(delta))/(2*a)
+    root2=(-b-math.sqrt(delta))/(2*a)
+    print("Two roots are distinct and real",root1,root2)
+
+//q2
+Q.2 i)
+import math
+def f(x):
+    return 3*math.cos(x)-math.exp(x)
+def fd(x):
+    return -3*math.sin(x)-math.exp(x)
+def newton(x0,e,n):
+    step = 1
+    flag = 1
+    condition=True
+    while condition:
+        if fd(x0)==0.0:
+            print("Divide by zero error")
+            break
+        x1=x0-f(x0)/fd(x0)
+        print("Iteration - %d, x1=%0.6f and f(x1)=%0.6f" % (step,x1,f(x1)))
+        x0=x1
+        step=step + 1
+        if step > n:
+            flag=0
+            break
+        condition= abs(f(x1))>e
+    if flag == 1:
+        print("\n Required root is: %0.8f" % x1)
+    else:
+        print("\n Not convergent ")
+x0=float(input("Enter the initial value: "))
+e=float(input("Error "))
+n=int(input("Iteration "))
+newton(x0,e,n)
+
+//Q.2 ii)
+import math
+def f(x):
+    return x-math.exp(-x)
+def fd(x):
+    return 1+math.exp(-x)
+def newton(x0,e,n):
+    step = 1
+    flag = 1
+    condition=True
+    while condition:
+        if fd(x0)==0.0:
+            print("Divide by zero error")
+            break
+        x1=x0-f(x0)/fd(x0)
+        print("Iteration - %d, x1=%0.6f and f(x1)=%0.6f" % (step,x1,f(x1)))
+        x0=x1
+        step=step + 1
+        if step > n:
+            flag=0
+            break
+        condition= abs(f(x1))>e
+    if flag == 1:
+        print("\n Required root is: %0.8f" % x1)
+    else:
+        print("\n Not convergent ")
+x0=float(input("Enter the initial value: "))
+e=float(input("Error "))
+n=int(input("Iteration "))
+newton(x0,e,n)
+
+
+//
