@@ -1,0 +1,82 @@
+Q!
+import pandas as pd
+test=[]
+n= int(input("Enter the length of series: "))
+for i in range(n):
+m=int(input("Enter the elements: "))
+test.append(m)
+test_series=pd.Series(test)
+print("Series of the elements is\n",test_series)
+p75=(test_series.quantile(0.75))
+print("75th percentile is ",p75)
+for x in range(len(test_series)):
+if test_series[x]>p75:
+print("Elements of the series which are above the 75th percentile", test_series[x])
+
+
+
+Q2
+list=[]
+num=int(input("Enter the total number of observation in a set: "))
+for i in range(1,num+1):
+a=int(input("Enter the values: "))
+list.append(a)
+print("The given observations are\n",list)
+s=sorted(list)
+print("Sorted list from smallest to largest is \n",s)
+n=len(s)
+if (n % 2 == 0):
+m1=s[n//2]
+m2=s[n//2-1]
+median=(m1+m2)/2
+else:
+median=s[n//2]
+print("Median is ",median)
+
+
+
+
+Q3
+import pandas as pd
+ex=[260, 300, 350, 150, 450, 700, 900, 200, 450, 1150, 1100, 180, 125, 149, 600]
+s=pd.Series(ex)
+print("Monthly medicine expenditure of 15 families are: \n",s)
+n= len(s)
+m=sum(s)/n
+print("Arithmetic mean is: ", m)
+gm=10**(sum(np.log10(s))/n)
+print("Geometric mean is %0.6f" %gm)
+hm=n/sum(1/s)
+print("Harmonic mean is %0.6f" %hm)
+print("Median of the given data is",s.median())
+print("Mode of the given data is",s.mode() )
+print("Third quartile is",s.quantile(0.75))
+print("Forth decile is",s.quantile(0.4))
+print("56th percentile is",s.quantile(0.56))
+range=max(s)-min(s)
+print("Range of the data is", range)
+
+Q4
+from pandas import *
+from numpy import *
+x=Series([18,19,20,21,22,23,24,25,26,27])
+f=Series([3,7,11,14,18,17,13,8,5,4])
+d={}
+d["Number_of_Articles"]=x
+d["Number_of_workers"]=f
+data=DataFrame(d)
+print(data)
+N=sum(f)
+mean=(sum(x*f))/N
+hm=N/sum(f/x)
+gm=10**((sum(f*log10(x)))/N)
+v=(sum(f*(x-mean)**2))/N
+sd=sqrt(v)
+cv=(sd/abs(mean))*100
+print("The value of N is: ",N)
+print("The Arithmetic mean is: %0.4f" %mean)
+print("The Harmonic mean is: %0.4f" %hm)
+print("The Geometric mean is: %0.4f" %gm)
+print("The variance of the data is: %0.4f" %v)
+print("The standard deviation of the data is: %0.4f" %sd)
+print("Coefficient of variation of the given data is: %0.4f" %cv)
